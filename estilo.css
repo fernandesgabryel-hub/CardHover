@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  background: #1a1a2e; /* Alterado para cor escura profunda */
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: white; /* Ajustado para dar contraste com o fundo escuro */
+}
+
+h1 span {
+  color: #ff007f; /* Alterado a cor da palavra destacada */
+}
+
+body > p {
+  color: #aaa; /* Ajustado para melhor leitura no fundo escuro */
+}
+
+/* Organiza os cartões lado a lado. */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px; /* Espaçamento aumentado de 30px para 40px */
+  margin-top: 40px;
+}
+
+.card {
+  width: 280px; /* Largura aumentada de 240px para 280px */
+  max-width: 100%;
+}
+
+/* As duas partes têm a mesma altura. */
+.frente,
+.verso {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  transition: transform 1s; /* Animação mais lenta: de 0.5s para 1s */
+}
+
+/* Desloca a frente para baixo. */
+.frente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--cor);
+  z-index: 1;
+  transform: translateY(80px);
+  box-shadow: 0 10px 20px #0003;
+}
+
+/* Símbolo do cartão. */
+.icone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 8px;
+  background: white;
+  color: var(--cor);
+  font-size: 34px; /* Tamanho dos símbolos aumentado de 28px para 34px */
+  font-weight: bold;
+}
+
+/* Desloca o verso para cima, atrás da frente. */
+.verso {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: white;
+  transform: translateY(-80px);
+  box-shadow: 0 15px 25px #0004;
+}
+
+.verso h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.verso p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Revela o texto com o mouse ou com o foco do teclado. */
+.card:hover .frente,
+.card:hover .verso,
+.card:focus .frente,
+.card:focus .verso {
+  transform: translateY(0);
+}
+
+/* Identifica o cartão selecionado pelo teclado. */
+.card:focus-visible {
+  outline: 2px solid #fff; /* Alterado para branco para destacar no fundo escuro */
+  outline-offset: 6px;
+}
